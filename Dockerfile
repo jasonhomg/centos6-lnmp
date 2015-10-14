@@ -2,16 +2,19 @@ FROM imagine10255/centos6-lnmp:latest
 MAINTAINER ImagineChiu imagine10255@gmail.com
 
 ENV DB_USER=root \
-    DB_PASSWORD=P@ssw0rd
+    DB_PASSWORD=P@ssw0rd \
+    APP_DIR=/home/wwwroot/website
 
 # Initialization and Startup Script
-ADD ./start.sh /start.sh
-RUN chmod 755 /start.sh && \
-    echo "/start.sh" >> /root/.bashrc
+ADD . /opt/
+WORKDIR /opt
 
-RUN cp config/nginx/nginx.conf /usr/local/nginx/conf/nginx.conf && \
-    cp config/php/php.ini /usr/local/php/etc/php.ini && \
-    cp config/mysql/my.conf /etc/my.cnf
+RUN chmod 755 ./start.sh && \
+    echo "/opt/start.sh" >> /root/.bashrc && \
+    mkdir -p ${APP_DIR} && \
+    cp ./config/nginx/nginx.conf /usr/local/nginx/conf/nginx.conf && \
+    cp ./config/php/php.ini /usr/local/php/etc/php.ini && \
+    cp ./config/mysql/my.cnf /etc/my.cnf
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php && \
