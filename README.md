@@ -49,28 +49,22 @@ Package: Lnmp1.2
 
 
 ##### Create New Container
-
+```
 $ docker run -idt \
-
 --name {site-name} \
-
 -p 80:8080 \
-
 -p 80:8081 \
-
 -p 3306:3306 \
-
 -p 22:23 \
-
 imagine10255/centos6-lnmp:latest
-
+```
 
 ##### Enter Container
-
+```
 $ docker exec -it {container-id} bash
-
+```
 or
-
+```
 $ docker run --rm -v /usr/local/bin:/target jpetazzo/nsenter
-
 $ sudo docker-enter {container-id}
+```
