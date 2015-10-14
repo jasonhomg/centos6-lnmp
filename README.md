@@ -63,7 +63,7 @@ imagine10255/centos6-lnmp:latest
 ```
 $ docker exec -it {container-id} bash
 ```
-or
+or use docker-enter
 ```
 $ docker run --rm -v /usr/local/bin:/target jpetazzo/nsenter
 $ sudo docker-enter {container-id}
