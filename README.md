@@ -3,26 +3,36 @@
 dockerfile for centos6-lnmp 
 
 
-Description
+##### Description
 
-[Lnmp1.2]
+Package: Lnmp1.2
 
-1.Nginx
+<ol>
+  <li>Nginx</li>
+  <li>PHP 5.6.9</li>
+  <li>MariaDB 10.0.17</li>
+</ol>
+> lnmp setup by burgess
 
-2.MariaDB 10.0.17
 
-3.PHP 5.6.9
+##### Config
 
-lnmp setup by burgess
+<ol>
+  <li>Nginx主配置文件：/usr/local/nginx/conf/nginx.conf</li>
+  <li>(root/vhost.sh)添加的虛擬主機配置文件：/usr/local/nginx/conf/vhost/域名.conf</li>
+  <li>MySQL配置文件：/etc/my.cnf</li>
+  <li>MySQL配置文件：/etc/my.cnf</li>
+  <li>MySQL配置文件：/etc/my.cnf</li>
+  <li>MySQL配置文件：/etc/my.cnf</li>
+  <li>MySQL配置文件：/etc/my.cnf</li><li>MySQL配置文件：/etc/my.cnf</li>
+</ol>
 
 
-Config
 
-Nginx主配置文件：/usr/local/nginx/conf/nginx.conf
 
-(root/vhost.sh)添加的虛擬主機配置文件：/usr/local/nginx/conf/vhost/域名.conf
 
-MySQL配置文件：/etc/my.cnf
+
+
 
 PHP配置文件：/usr/local/php/etc/php.ini
 
