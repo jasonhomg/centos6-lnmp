@@ -9,6 +9,10 @@ ADD ./start.sh /start.sh
 RUN chmod 755 /start.sh && \
     echo "/start.sh" >> /root/.bashrc
 
+RUN cp config/nginx/nginx.conf /usr/local/nginx/conf/nginx.conf && \
+    cp config/php/php.ini /usr/local/php/etc/php.ini && \
+    cp config/mysql/my.conf /etc/my.cnf
+
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php && \
     mv composer.phar /usr/local/bin/composer && \
@@ -22,10 +26,9 @@ RUN service mariadb start && \
 # Private expose
 EXPOSE 3306
 EXPOSE 80 81
-EXPOSE 22
 
 # Volume for web server install
-VOLUME ["/website"]
+VOLUME ["/home/wwwroot/website","/usr/local/mariadb/var"]
 
 # Start run shell
 CMD ["bash"]
