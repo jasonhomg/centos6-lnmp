@@ -55,7 +55,6 @@ $ docker run -idt \
 -p 80:8080 \
 -p 80:8081 \
 -p 3306:3306 \
--p 22:23 \
 imagine10255/centos6-lnmp:latest
 ```
 
