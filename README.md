@@ -16,6 +16,9 @@ Package: Lnmp1.2
 
 
 
+
+
+
 ##### Config Path
 <ul>
   <li>LNMP相關配置文件
@@ -41,6 +44,9 @@ Package: Lnmp1.2
 
 
 
+
+
+
 ##### Config Port
 
 <ol>
@@ -48,6 +54,9 @@ Package: Lnmp1.2
   <li>81 = /home/wwwroot/website 映射專案目錄(laravel5)</li>
   <li>3306 = mysql 外部工具連入</li>
 </ol>
+
+
+
 
 
 
