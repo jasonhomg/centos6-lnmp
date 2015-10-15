@@ -6,6 +6,12 @@ ENV DB_USER=root \
     DB_DIR=/usr/local/mariadb/var \
     APP_DIR=/home/wwwroot/website
 
+# Set Mariadb Tools Link
+RUN service mariadb start && \
+    mysql -u${DB_USER} -p${DB_PASSWORD} -e"GRANT ALL PRIVILEGES ON *.* TO '${DB_USER}'@'%' IDENTIFIED BY '${DB_PASSWORD}' WITH GRANT OPTION;flush privileges;" && \
+    service mariadb stop
+    
+    
 # Initialization and Startup Script
 ADD . /opt/
 WORKDIR /opt
@@ -26,16 +32,15 @@ RUN curl -sS https://getcomposer.org/installer | php && \
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
     echo "export PATH=~/.composer/vendor/bin:$PATH" >> ~/.bash_profile
 
-# Set Mariadb Tools Link
-RUN service mariadb start && \
-    mysql -u${DB_USER} -p${DB_PASSWORD} -e"GRANT ALL PRIVILEGES ON *.* TO '${DB_USER}'@'%' IDENTIFIED BY '${DB_PASSWORD}' WITH GRANT OPTION;flush privileges;"
 
 # Private expose
 EXPOSE 3306
 EXPOSE 80 81
 
+
 # Volume for web server install
 VOLUME ["${APP_DIR}","${DB_DIR}"]
+
 
 # Start run shell
 CMD ["bash"]
