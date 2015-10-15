@@ -53,7 +53,7 @@ Package: Lnmp1.2
 $ docker run -idt \
 --name {site-name} \
 -p 80:8080 \
--p 80:8081 \
+-p 81:8081 \
 -p 3306:3306 \
 imagine10255/centos6-lnmp:latest
 ```
