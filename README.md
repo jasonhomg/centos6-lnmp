@@ -57,7 +57,10 @@ $ docker run -idt \
 -p 3306:3306 \
 imagine10255/centos6-lnmp:v2.0.1
 ```
-
+or
+```
+$ sh create.sh {site-name}
+```
 ##### Enter Container
 ```
 $ docker exec -it {container-id} bash
