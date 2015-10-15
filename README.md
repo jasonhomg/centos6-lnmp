@@ -55,7 +55,7 @@ $ docker run -idt \
 -p 80:8080 \
 -p 81:8081 \
 -p 3306:3306 \
-imagine10255/centos6-lnmp:latest
+imagine10255/centos6-lnmp:v2.0.1
 ```
 
 ##### Enter Container
