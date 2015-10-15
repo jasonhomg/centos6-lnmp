@@ -23,7 +23,9 @@ RUN chmod 755 /opt/bash/init.sh && \
     cp ./config/php/php.ini /usr/local/php/etc/php.ini && \
     cp ./config/mysql/my.cnf /etc/my.cnf && \
     mkdir -p /opt/backup && \
-    cp -r ${DB_DIR} /opt/backup/mysql-data
+    cp -r ${DB_DIR} /opt/backup/mysql-data && \
+    tar -xf ./config/redis/phpredisadmin.tar -C /home/wwwroot/default && \
+    cp -r ./config/index.html /home/wwwroot/default
 
 
 # Install Composer
@@ -32,8 +34,16 @@ RUN curl -sS https://getcomposer.org/installer | php && \
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
     echo "export PATH=~/.composer/vendor/bin:$PATH" >> ~/.bash_profile
 
+
+# Install Redis
+RUN wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm && \
+    rpm -ivh epel-release-6-8.noarch.rpm && \
+    yum -y install redis
+    
+
 # Set Default DIR
 WORKDIR ${APP_DIR}
+
 
 # Private expose
 EXPOSE 3306

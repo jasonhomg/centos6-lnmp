@@ -10,7 +10,7 @@ fi
 
 
 # Check & RUN Service
-for SERVICE in mariadb nginx php-fpm
+for SERVICE in mariadb nginx php-fpm redis
 do
   if ps ax | grep -v grep | grep $SERVICE > /dev/null
   then

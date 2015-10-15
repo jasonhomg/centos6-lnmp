@@ -14,7 +14,7 @@ docker run -idt \
 -p 8080:80 \
 -p 8081:81 \
 -p 3306:3306 \
-imagine10255/centos6-lnmp:v2.0.1
+imagine10255/centos6-lnmp:v2.0.2
 
 # enter docker-container
 sh ./enter_docker.sh $CONTAINER
