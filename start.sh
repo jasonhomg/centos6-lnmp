@@ -12,4 +12,4 @@ fi
 # RUN Service
 service mariadb start && \
 service nginx start && \
-service php-fpm start && \
+service php-fpm start
