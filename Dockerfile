@@ -32,6 +32,8 @@ RUN curl -sS https://getcomposer.org/installer | php && \
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
     echo "export PATH=~/.composer/vendor/bin:$PATH" >> ~/.bash_profile
 
+# Set Default DIR
+WORKDIR ${APP_DIR}
 
 # Private expose
 EXPOSE 3306
