@@ -50,25 +50,11 @@ Package: Lnmp1.2
 
 ##### Create New Container
 ```
-$ docker run -idt \
---name {site-name} \
--p 80:8080 \
--p 81:8081 \
--p 3306:3306 \
-imagine10255/centos6-lnmp:v2.0.1
-```
-or
-```
-$ sh create.sh {site-name}
+$ sh create_docker.sh {new-container-name}
 ```
 ##### Enter Container
 ```
-$ docker exec -it {container-id} bash
-```
-or use docker-enter
-```
-$ docker run --rm -v /usr/local/bin:/target jpetazzo/nsenter
-$ sudo docker-enter {container-id}
+$ sh enter_docker.sh {container-name} bash
 ```
 
 ##### build Image
