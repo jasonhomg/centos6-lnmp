@@ -71,7 +71,7 @@ $ sudo docker-enter {container-id}
 
 ##### build Image
 ```
-$ git clone git@github.com:imagine10255/centos6-lnmp.git
+$ git clone https://github.com/imagine10255/centos6-lnmp.git
 $ docker build -t imagine10255/centos6-lnmp:v2.0.1 ./centos6-lnmp
 ```
 
