@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CONTAINER="${1};"
+CONTAINER="${1}";
 
 if [ "$CONTAINER" == "" ]; then
 echo "please enter container name";
@@ -9,7 +9,7 @@ exit;
 fi
 
 docker run -idt \
---name $CONTAINER \
+--name "$CONTAINER" \
 -p 80:8080 \
 -p 81:8081 \
 -p 3306:3306 \
