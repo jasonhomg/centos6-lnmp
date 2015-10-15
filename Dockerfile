@@ -3,6 +3,7 @@ MAINTAINER ImagineChiu imagine10255@gmail.com
 
 ENV DB_USER=root \
     DB_PASSWORD=P@ssw0rd \
+    DB_DIR=/usr/local/mariadb/var \
     APP_DIR=/home/wwwroot/website
 
 # Initialization and Startup Script
@@ -14,7 +15,10 @@ RUN chmod 755 ./start.sh && \
     mkdir -p ${APP_DIR} && \
     cp ./config/nginx/nginx.conf /usr/local/nginx/conf/nginx.conf && \
     cp ./config/php/php.ini /usr/local/php/etc/php.ini && \
-    cp ./config/mysql/my.cnf /etc/my.cnf
+    cp ./config/mysql/my.cnf /etc/my.cnf && \
+    mkdir -p /opt/backup && \
+    cp -r ${DB_DIR} /opt/backup/mysql-data
+
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php && \
@@ -31,7 +35,7 @@ EXPOSE 3306
 EXPOSE 80 81
 
 # Volume for web server install
-VOLUME ["/home/wwwroot/website","/usr/local/mariadb/var"]
+VOLUME ["${APP_DIR}","${DB_DIR}"]
 
 # Start run shell
 CMD ["bash"]
