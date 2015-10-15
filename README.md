@@ -31,6 +31,12 @@ Package: Lnmp1.2
       <li>Redis 配置文件：/usr/local/redis/etc/redis.conf</li>
     </ol>
   </li>
+  <li>本地端與容器對應路徑
+    <ol>
+      <li>/home/wwwroot/website : C:\Users\imaginechiu\Documents\Kitematic\project</li>
+      <li>/usr/local/mariadb/var: C:\Users\imaginechiu\Documents\Kitematic\project\database</li>
+    </ol>
+  </li>
 </ul>
 
 
