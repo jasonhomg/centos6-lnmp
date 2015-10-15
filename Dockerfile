@@ -16,8 +16,8 @@ RUN service mariadb start && \
 ADD . /opt/
 WORKDIR /opt
 
-RUN chmod 755 ./start.sh && \
-    echo "/opt/start.sh" >> /root/.bashrc && \
+RUN chmod 755 /opt/bash/init.sh && \
+    echo "/opt/bash/init.sh" >> /root/.bashrc && \
     mkdir -p ${APP_DIR} && \
     cp ./config/nginx/nginx.conf /usr/local/nginx/conf/nginx.conf && \
     cp ./config/php/php.ini /usr/local/php/etc/php.ini && \
