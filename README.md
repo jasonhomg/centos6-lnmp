@@ -62,6 +62,11 @@ Package: Lnmp1.2
 
 # How to use
 
+##### build Image
+```
+$ git clone https://github.com/imagine10255/centos6-lnmp.git
+$ docker build -t imagine10255/centos6-lnmp:v2.0.1 ./centos6-lnmp
+```
 
 ##### Create New Container
 ```
@@ -69,11 +74,5 @@ $ sh create_docker.sh {new-container-name}
 ```
 ##### Enter Container
 ```
-$ sh enter_docker.sh {container-name} bash
-```
-
-##### build Image
-```
-$ git clone https://github.com/imagine10255/centos6-lnmp.git
-$ docker build -t imagine10255/centos6-lnmp:v2.0.1 ./centos6-lnmp
+$ sh enter_docker.sh {container-name}
 ```
